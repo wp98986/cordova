@@ -20,7 +20,10 @@ const ComponentEnum = {
 class BasicLayout extends Component {
   constructor(props) {
     super(props);
-    const { location: { pathname } = {} } = props;
+    let { location: { pathname } = {} } = props;
+    if (pathname === '/') {
+      pathname = '/life';
+    }
     this.state = {
       selectedTab: pathname,
       hidden: false,
@@ -46,16 +49,11 @@ class BasicLayout extends Component {
   //     // return false;
   //   }
 
-  pathTo = url => {
+  pathTo = pathName => {
     // history.replace(`/${url}`);
-    this.setState(
-      {
-        selectedTab: `/${url}`,
-      },
-      () => {
-        history.push(`/${url}`);
-      },
-    );
+    this.setState({
+      selectedTab: pathName,
+    });
   };
 
   renderContent(content) {
@@ -103,7 +101,7 @@ class BasicLayout extends Component {
           selected={this.state.selectedTab === '/life'}
           badge={1}
           onPress={() => {
-            this.pathTo('life');
+            this.pathTo('/life');
           }}
           data-seed="logId"
         >
@@ -136,7 +134,7 @@ class BasicLayout extends Component {
           badge={'new'}
           selected={this.state.selectedTab === '/koubei'}
           onPress={() => {
-            this.pathTo('koubei');
+            this.pathTo('/koubei');
           }}
           data-seed="logId1"
         >
@@ -168,7 +166,7 @@ class BasicLayout extends Component {
           dot
           selected={this.state.selectedTab === '/friend'}
           onPress={() => {
-            this.pathTo('friend');
+            this.pathTo('/friend');
           }}
         >
           {this.renderContent('Friend')}
@@ -186,7 +184,7 @@ class BasicLayout extends Component {
           key="my"
           selected={this.state.selectedTab === '/my'}
           onPress={() => {
-            this.pathTo('my');
+            this.pathTo('/my');
           }}
         >
           {this.renderContent('My')}

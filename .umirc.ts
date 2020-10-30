@@ -1,6 +1,4 @@
 import { defineConfig } from 'umi';
-const theme = require('./package.json').theme;
-
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
@@ -25,25 +23,26 @@ export default defineConfig({
     },
   ],
   // 配置代理
-  proxy: {
-    '/site': {
-      target: 'http://www.redstarbuy.com',
-      changeOrigin: true,
-      cookieDomainRewrite: 'localhost',
-    },
-    '/boss': {
-      target: 'http://boss.redstarbuy.com',
-      changeOrigin: true,
-      cookieDomainRewrite: 'localhost',
-    },
-    '/supplier': {
-      target: 'http://supplier.redstarbuy.com',
-      changeOrigin: true,
-      cookieDomainRewrite: 'localhost',
-    },
-  },
+  // proxy: {
+  //   '/site': {
+  //     target: 'http://www.redstarbuy.com',
+  //     changeOrigin: true,
+  //     cookieDomainRewrite: 'localhost',
+  //   },
+  //   '/boss': {
+  //     target: 'http://boss.redstarbuy.com',
+  //     changeOrigin: true,
+  //     cookieDomainRewrite: 'localhost',
+  //   },
+  //   '/supplier': {
+  //     target: 'http://supplier.redstarbuy.com',
+  //     changeOrigin: true,
+  //     cookieDomainRewrite: 'localhost',
+  //   },
+  // },
   // 配置主题色
   theme: {
     '@brand-primary': '#1DA57A',
   },
+  publicPath:"./"
 });
