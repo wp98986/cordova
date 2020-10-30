@@ -20,7 +20,8 @@ const ComponentEnum = {
 class BasicLayout extends Component {
   constructor(props) {
     super(props);
-    const { location: { pathname } = {} } = props;
+    let { location: { pathname } = {} } = props;
+    if (pathname === '/') pathname = '/life';
     this.state = {
       selectedTab: pathname,
       hidden: false,

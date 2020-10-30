@@ -12,7 +12,7 @@ export default defineConfig({
       exact: false,
       component: '@/layouts/BasicLayout',
       routes: [
-        { exact: true, path: '/', redirect: '/life' },
+        { exact: false, path: '/', redirect: '/life' },
         { exact: true, path: '/life', component: '@/pages/Life/index' },
         { exact: true, path: '/koubei', component: '@/pages/Koubei/index' },
         {
