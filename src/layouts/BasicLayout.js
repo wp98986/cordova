@@ -16,12 +16,15 @@ const ComponentEnum = {
   My: My,
 };
 
+let hasPath = true;
 // const ULR_NO_LAYOUT = ['/', '/home', '/class', '/my']; //判断在哪几个路由下需要出现底部导航
 class BasicLayout extends Component {
   constructor(props) {
     super(props);
     let { location: { pathname } = {} } = props;
-    if (pathname === '/') pathname = '/life';
+    if (pathname === '/') {
+      pathname = '/life';
+    }
     this.state = {
       selectedTab: pathname,
       hidden: false,
@@ -41,30 +44,49 @@ class BasicLayout extends Component {
   //   );
   // }
 
-  //   shouldComponentUpdate(nextProps, nextState) {
-  //     // console.log(!shallowequal(this.props, nextProps) || !shallowequal(this.state, nextState));
-  //     // return !shallowequal(this.props, nextProps);
-  //     // return false;
-  //   }
+  shouldComponentUpdate(nextProps, nextState) {
+    // let { location: { pathname } = {} } = this.props;
+    // let { location: { pathname: currentPath } = {} } = nextProps;
+    // console.log(nextProps, pathname);
+    // console.log(pathname);
+    return !hasPath;
 
-  pathTo = url => {
-    // history.replace(`/${url}`);
+    // let { location: { pathname } = {} } = nextProps;
+    // console.log(prePath, pathname);
+    // // const {selectedTab}=nextProps'
+    // if (prePath === pathname) {
+    //   return false;
+    // }
+    // prePath = pathname;
+    // return true;
+
+    // return (
+    //   !shallowequal(this.props, nextProps) ||
+    //   !shallowequal(this.state, nextState)
+    // );
+    // return !shallowequal(this.props, nextProps);
+  }
+
+  pathTo = pathName => {
+    history.push(pathName);
+    hasPath = true;
     this.setState(
       {
-        selectedTab: `/${url}`,
+        selectedTab: pathName,
       },
       () => {
-        history.push(`/${url}`);
+        hasPath = false;
       },
     );
   };
 
   renderContent(content) {
-    const Componen = ComponentEnum[content];
+    const Components = ComponentEnum[content];
     return (
       <div>
         {content}
-        <Componen></Componen>
+        <Components></Components>
+        {/* {this.props.children} */}
       </div>
     );
   }
@@ -104,7 +126,7 @@ class BasicLayout extends Component {
           selected={this.state.selectedTab === '/life'}
           badge={1}
           onPress={() => {
-            this.pathTo('life');
+            this.pathTo('/life');
           }}
           data-seed="logId"
         >
@@ -137,7 +159,7 @@ class BasicLayout extends Component {
           badge={'new'}
           selected={this.state.selectedTab === '/koubei'}
           onPress={() => {
-            this.pathTo('koubei');
+            this.pathTo('/koubei');
           }}
           data-seed="logId1"
         >
@@ -169,7 +191,7 @@ class BasicLayout extends Component {
           dot
           selected={this.state.selectedTab === '/friend'}
           onPress={() => {
-            this.pathTo('friend');
+            this.pathTo('/friend');
           }}
         >
           {this.renderContent('Friend')}
@@ -187,7 +209,7 @@ class BasicLayout extends Component {
           key="my"
           selected={this.state.selectedTab === '/my'}
           onPress={() => {
-            this.pathTo('my');
+            this.pathTo('/my');
           }}
         >
           {this.renderContent('My')}

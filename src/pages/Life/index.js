@@ -23,7 +23,10 @@ function HomePage(props) {
   });
 
   const path = num => {
-    console.log(num);
+    // console.log(num);
+    let { location: { pathname } = {} } = history;
+    // console.log(pathname);
+    // window.location.href = window.location.href + 'login';
     history.push('/login');
   };
 
@@ -36,7 +39,7 @@ function HomePage(props) {
           path('2');
         }}
       >
-        primary
+        primary 
       </Button>
     </div>
   );
