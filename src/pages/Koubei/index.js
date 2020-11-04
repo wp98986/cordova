@@ -3,7 +3,8 @@ import { connect } from 'dva';
 
 function Example(props) {
   const [count, setCount] = useState(0);
-
+  let { location: { pathname } = {} } = props;
+  console.log(pathname)
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     const { dispatch } = props;

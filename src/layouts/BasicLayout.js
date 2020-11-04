@@ -16,7 +16,7 @@ const ComponentEnum = {
   My: My,
 };
 
-let hasPath = true;
+let globalPath = null;
 // const ULR_NO_LAYOUT = ['/', '/home', '/class', '/my']; //判断在哪几个路由下需要出现底部导航
 class BasicLayout extends Component {
   constructor(props) {
@@ -44,40 +44,12 @@ class BasicLayout extends Component {
   //   );
   // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    // let { location: { pathname } = {} } = this.props;
-    // let { location: { pathname: currentPath } = {} } = nextProps;
-    // console.log(nextProps, pathname);
-    // console.log(pathname);
-    return !hasPath;
-
-    // let { location: { pathname } = {} } = nextProps;
-    // console.log(prePath, pathname);
-    // // const {selectedTab}=nextProps'
-    // if (prePath === pathname) {
-    //   return false;
-    // }
-    // prePath = pathname;
-    // return true;
-
-    // return (
-    //   !shallowequal(this.props, nextProps) ||
-    //   !shallowequal(this.state, nextState)
-    // );
-    // return !shallowequal(this.props, nextProps);
-  }
-
   pathTo = pathName => {
     history.push(pathName);
-    hasPath = true;
-    this.setState(
-      {
-        selectedTab: pathName,
-      },
-      () => {
-        hasPath = false;
-      },
-    );
+
+    this.setState({
+      selectedTab: pathName,
+    });
   };
 
   renderContent(content) {

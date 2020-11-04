@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'dva';
 import { history } from 'umi';
 import { Button } from 'antd-mobile';
+import styles from './index.less';
 
 function HomePage(props) {
   useEffect(() => {
@@ -31,7 +32,7 @@ function HomePage(props) {
   };
 
   return (
-    <div className="home-page">
+    <div className={styles.lifeContainer}>
       这是life <div>{dataNode}</div>
       <Button
         type="primary"
@@ -39,8 +40,12 @@ function HomePage(props) {
           path('2');
         }}
       >
-        primary 
+        primary
       </Button>
+      <div className={styles.h1}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
+      <div className={styles.h2}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
+      <div className={styles.h3}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
+      <div className={styles.h4}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
     </div>
   );
 }
