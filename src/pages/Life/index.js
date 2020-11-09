@@ -46,6 +46,24 @@ function HomePage(props) {
       <div className={styles.h2}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
       <div className={styles.h3}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
       <div className={styles.h4}>啊哈还大的发的SAD SD gsdfgd 鬼地方个</div>
+      <div className={styles.item}>
+        <div className={styles.itemImg}>
+          <img
+            src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy9MRFBMbHRtTnk1NGtXZG9vVXlKMjFwYzBVSkFvR0xHaWJ2R09hWmtWT3hXTWlhOHJyczZpY1pTRjA3eUJNS2JJZm11ZzdqZjM0OEZ5ckl4dXBtb1RQcXRJdy82NDA?x-oss-process=image/format,png"
+            alt=""
+          />
+        </div>
+        <div className={styles.itemRight}>
+          <div className={styles.goodsName}>
+            原装进口 Luooma vesta 餐椅(114黑原木色/ 807铜色/113胡桃木色)
+          </div>
+          <div className={styles.goodsSpec}>颜色：黄色;规格：900*800*777MM</div>
+          <div className={styles.goodsTotal}>
+            <div className={styles.price}>￥8520</div>
+            <div className={styles.goodNum}>1</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

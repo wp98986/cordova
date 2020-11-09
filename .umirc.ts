@@ -33,10 +33,8 @@ export default defineConfig({
   history: {
     type: 'hash',
   },
+  // 静态资源路径
   publicPath: './',
   // 开启按需加载
   dynamicImport: {},
-  devServer: {
-    open: true,
-  },
 });

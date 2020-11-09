@@ -45,7 +45,7 @@ class BasicLayout extends Component {
   // }
 
   pathTo = pathName => {
-    history.push(pathName);
+    // history.push(pathName);
 
     this.setState({
       selectedTab: pathName,
