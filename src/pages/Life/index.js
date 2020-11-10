@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'dva';
 import { history } from 'umi';
-import { Button } from 'antd-mobile';
+import { Button, DatePicker, List } from 'antd-mobile';
 import styles from './index.less';
 
 function HomePage(props) {
+  const nowTimeStamp = Date.now();
+  const now = new Date(nowTimeStamp);
+  const [nowDate, dateChange] = useState(now);
   useEffect(() => {
     const { dispatch } = props;
     dispatch({
@@ -64,6 +67,9 @@ function HomePage(props) {
           </div>
         </div>
       </div>
+      <DatePicker value={nowDate} onChange={date => dateChange(date)}>
+        <List.Item arrow="horizontal">Datetime</List.Item>
+      </DatePicker>
     </div>
   );
 }

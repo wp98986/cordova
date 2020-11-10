@@ -38,5 +38,7 @@ export default {
   publicPath: './',
   // 开启按需加载
   dynamicImport: {},
-  extraPostCSSPlugins: [px2viewport({ viewportWidth: 375 })],
+  extraPostCSSPlugins: [
+    px2viewport({ unitToConvert: 'px', viewportWidth: 375 }),
+  ],
 };
